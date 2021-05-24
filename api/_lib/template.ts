@@ -16,7 +16,7 @@ function getCss(fontSize: string) {
     let piece = '#e5e5e5';
 
     return `
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
     @font-face {
         font-family: 'Inter';
@@ -73,6 +73,10 @@ function getCss(fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
+
+    p {
+        margin-bottom: 7rem;
+    }
     
     .heading {
         font-family: 'Noto Sans JP', 'Inter', sans-serif;
@@ -94,11 +98,9 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(fontSize)}
     </style>
     <body>
-        <div>
-            <div class="heading">${emojify(
-                md ? marked(text) : sanitizeHtml(text)
-            )}
-            </div>
+        <div class="heading">${emojify(
+            md ? marked(text) : sanitizeHtml(text)
+        )}
         </div>
     </body>
 </html>`;
