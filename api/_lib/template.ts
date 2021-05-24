@@ -11,9 +11,9 @@ const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('b
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
 
 function getCss(fontSize: string) {
-    let background = 'white';
-    let foreground = 'black';
-    let radial = 'lightgray';
+    let background = '#f5f5f5';
+    let foreground = '#171717';
+    let piece = '#d4d4d4';
 
     return `
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
@@ -41,8 +41,10 @@ function getCss(fontSize: string) {
 
     body {
         background: ${background};
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
-        background-size: 100px 100px;
+        background-image: linear-gradient(180deg, ${background} 45%, transparent 45% 55%, ${background} 55%),
+                    linear-gradient(to left, ${background} 45%, transparent 45% 49%, ${piece} 49% 51%, transparent 51% 55%, ${background} 55%),
+                    linear-gradient(180deg, transparent 49%, ${piece} 49% 51%, transparent 51%);
+        background-size: 125px 125px;
         height: 100vh;
         display: flex;
         text-align: center;
@@ -93,7 +95,6 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-            <div class="spacer">
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
