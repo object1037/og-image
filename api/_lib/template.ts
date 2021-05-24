@@ -11,9 +11,9 @@ const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('b
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
 
 function getCss(fontSize: string) {
-    let background = '#f5f5f5';
+    let background = '#fafafa';
     let foreground = '#171717';
-    let piece = '#d4d4d4';
+    let piece = '#e5e5e5';
 
     return `
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
