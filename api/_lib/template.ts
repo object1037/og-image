@@ -16,6 +16,8 @@ function getCss(fontSize: string) {
     let radial = 'lightgray';
 
     return `
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
     @font-face {
         font-family: 'Inter';
         font-style:  normal;
@@ -71,7 +73,7 @@ function getCss(fontSize: string) {
     }
     
     .heading {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Noto Sans JP', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
