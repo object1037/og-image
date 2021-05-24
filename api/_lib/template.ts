@@ -75,7 +75,7 @@ function getCss(fontSize: string) {
     }
 
     p {
-        margin-bottom: 7rem;
+        margin-bottom: 8.25rem;
     }
     
     .heading {
