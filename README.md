@@ -2,8 +2,8 @@
 
 # [Open Graph Image as a Service](https://og-image.vercel.app)
 
-<a href="https://og-image.object1037.dev">
-    <img align="right" src="https://og-image.object1037.dev/%E3%83%86%E3%82%B9%E3%83%88%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.png" height="300" />
+<a href="https://og-image.object1037.dev/**Hello**%20World.png?md=1&fontSize=100px">
+    <img align="right" src="https://og-image.object1037.dev/**Hello**%20World.png?md=1&fontSize=100px" height="300" />
 </a>
 
 Serverless service that generates dynamic Open Graph images that you can embed in your `<meta>` tags.
