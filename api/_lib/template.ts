@@ -11,9 +11,9 @@ const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('b
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
 
 function getCss(fontSize: string) {
-    let background = '#fafafa';
+    let background = '#ffffff';
+    let cardColor = '#f5f5f5'
     let foreground = '#171717';
-    let piece = '#e5e5e5';
 
     return `
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
@@ -41,13 +41,11 @@ function getCss(fontSize: string) {
 
     body {
         background: ${background};
-        background-image: linear-gradient(180deg, ${background} 45%, transparent 45% 55%, ${background} 55%),
-                    linear-gradient(to left, ${background} 45%, transparent 45% 49%, ${piece} 49% 51%, transparent 51% 55%, ${background} 55%),
-                    linear-gradient(180deg, transparent 49%, ${piece} 49% 51%, transparent 51%);
-        background-size: 125px 125px;
         height: 100vh;
+        box-sizing: border-box;
+        padding: 52px;
+        margin: 0px;
         display: flex;
-        text-align: center;
         align-items: center;
         justify-content: center;
     }
@@ -63,10 +61,6 @@ function getCss(fontSize: string) {
         content: '\`';
     }
 
-    .spacer {
-        margin: 150px;
-    }
-
     .emoji {
         height: 1em;
         width: 1em;
@@ -74,17 +68,27 @@ function getCss(fontSize: string) {
         vertical-align: -0.1em;
     }
 
-    p {
-        margin-bottom: 8.125rem;
-    }
-    
     .heading {
         font-family: 'Noto Sans JP', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
+        background-color: ${cardColor};
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
         color: ${foreground};
-        line-height: 1.8;
-    }`;
+        line-height: 1.625;
+        overflow: hidden;
+    }
+
+    p {
+        padding: 52px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+    `;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
