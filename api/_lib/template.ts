@@ -43,7 +43,7 @@ function getCss(fontSize: string) {
         background: ${background};
         height: 100vh;
         box-sizing: border-box;
-        padding: 52px;
+        padding: 44px;
         margin: 0px;
         display: flex;
         align-items: center;
@@ -78,7 +78,12 @@ function getCss(fontSize: string) {
         border-radius: 20px;
         color: ${foreground};
         line-height: 1.625;
+        position: relative;
+    }
+
+    .title {
         overflow: hidden;
+        height: calc(100% - 90px);
     }
 
     p {
@@ -87,6 +92,25 @@ function getCss(fontSize: string) {
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-all;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 28px;
+        right: 32px;
+        background-color: ${cardColor};
+    }
+
+    img {
+        border-radius: 9999px;
+        width: 68px;
+    }
+
+    .siteTitle {
+        font-size: 24px;
+        margin-left: 24px;
     }
     `;
 }
@@ -102,9 +126,16 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(fontSize)}
     </style>
     <body>
-        <div class="heading">${emojify(
-            md ? marked(text) : sanitizeHtml(text)
-        )}
+        <div class="heading">
+            <div class="title">
+            ${emojify(
+                md ? marked(text) : sanitizeHtml(text)
+            )}
+            </div>
+            <div class="logo">
+                <img src="https://blog.object1037.dev/images/profile.jpg" />
+                <span class="siteTitle">ゆるふわインターネット</span>
+            </div>
         </div>
     </body>
 </html>`;
