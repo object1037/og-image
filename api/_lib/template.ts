@@ -16,7 +16,7 @@ function getCss(fontSize: string) {
     let foreground = '#171717';
 
     return `
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
 
     @font-face {
         font-family: 'Inter';
@@ -72,6 +72,7 @@ function getCss(fontSize: string) {
         font-family: 'Noto Sans JP', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
+        font-weight: medium;
         background-color: ${cardColor};
         width: 100%;
         height: 100%;
