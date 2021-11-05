@@ -16,7 +16,7 @@ function getCss(fontSize: string) {
     let foreground = '#171717';
 
     return `
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
 
     @font-face {
         font-family: 'Inter';
@@ -72,7 +72,7 @@ function getCss(fontSize: string) {
         font-family: 'Noto Sans JP', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        font-weight: medium;
+        font-weight: bold;
         background-color: ${cardColor};
         width: 100%;
         height: 100%;
@@ -117,7 +117,7 @@ function getCss(fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, md, fontSize } = parsedReq;
+    const { text, fontSize } = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -129,9 +129,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <body>
         <div class="heading">
             <div class="title">
-            ${emojify(
-                md ? marked(text) : sanitizeHtml(text)
-            )}
+                ${emojify(marked(text))}
             </div>
             <div class="logo">
                 <img src="https://blog.object1037.dev/images/profile.jpg" />

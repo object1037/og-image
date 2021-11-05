@@ -118,7 +118,7 @@ const fileTypeOptions: DropdownOption[] = [
 
 const fontSizeOptions: DropdownOption[] = Array
     .from({ length: 10 })
-    .map((_, i) => i * 25)
+    .map((_, i) => i * 16)
     .filter(n => n > 0)
     .map(n => ({ text: n + 'px', value: n + 'px' }));
 
@@ -153,9 +153,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        fontSize = '100px',
+        fontSize = '64px',
         md = true,
-        text = '**Hello** World',
+        text = 'テストタイトル',
         showToast = false,
         messageToast = '',
         loading = true,
@@ -164,7 +164,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const mdValue = md ? '1' : '0';
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-    url.searchParams.append('md', mdValue);
     url.searchParams.append('fontSize', fontSize);
 
     return H('div',
