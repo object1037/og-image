@@ -122,11 +122,6 @@ const fontSizeOptions: DropdownOption[] = Array
     .filter(n => n > 0)
     .map(n => ({ text: n + 'px', value: n + 'px' }));
 
-const markdownOptions: DropdownOption[] = [
-    { text: 'Plain Text', value: '0' },
-    { text: 'Markdown', value: '1' },
-];
-
 interface AppState extends ParsedRequest {
     loading: boolean;
     showToast: boolean;
@@ -154,14 +149,12 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         fontSize = '64px',
-        md = true,
         text = 'テストタイトル',
         showToast = false,
         messageToast = '',
         loading = true,
         overrideUrl = null,
     } = state;
-    const mdValue = md ? '1' : '0';
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
     url.searchParams.append('fontSize', fontSize);
@@ -185,14 +178,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         options: fontSizeOptions,
                         value: fontSize,
                         onchange: (val: string) => setLoadingState({ fontSize: val })
-                    })
-                }),
-                H(Field, {
-                    label: 'Text Type',
-                    input: H(Dropdown, {
-                        options: markdownOptions,
-                        value: mdValue,
-                        onchange: (val: string) => setLoadingState({ md: val === '1' })
                     })
                 }),
                 H(Field, {
