@@ -11,13 +11,7 @@ function getCss(fontSize: string) {
     let foreground = '#171717';
 
     return `
-    @font-face {
-        font-family: 'Zen Maru Gothic';
-        font-style: normal;
-        font-weight: 400;
-        font-display: optional;
-        src: url(/ZenMaruGothic.woff2) format('woff2');
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&display=swap');
 
     body {
         background: ${background};
@@ -68,10 +62,10 @@ function getCss(fontSize: string) {
     }
 
     .icon {
-        width: 650px;
+        width: 600px;
         position: absolute;
         right: -150px;
-        bottom: -175px;
+        bottom: -160px;
     }
     `;
 }
@@ -80,13 +74,6 @@ export function getHtml(parsedReq: ParsedRequest) {
     const { text, fontSize } = parsedReq;
     return `<!DOCTYPE html>
 <html>
-    <link
-        rel="preload"
-        href="/ZenMaruGothic.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
